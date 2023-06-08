@@ -18,9 +18,11 @@ export function App() {
       <Route index element={<Home />} />
       <Route path="/data" element={<Data />} loader={dataLoader}/>
       <Route path= "/about" element={<About />}/>
-      </Route>
-     )
+      <Route path= "*" element={<h2>PAGE NOT FOUND</h2>}/>
+      </Route> 
+    )
   );
+
   return (
     <div className="App">
         <RouterProvider router={router}/>
@@ -36,17 +38,19 @@ export default App;
 const Root = () => {
 return (
 <div>
-  <h1>Welcome to the App!</h1>
   <nav>
-    <ul>
-      <li>
+    <ul className='ul'>
+      <li className='li'>
         <Link to="/">Home</Link>
       </li>
-      <li>
+      <li className='li'>
         <Link to="/about">About</Link>
       </li> 
-      <li>
+      <li className='li'>
         <Link to="/data">Data</Link>
+      </li> 
+      <li className='li'>
+        <Link to="/*">PAGE NOT FOUND</Link>
       </li> 
     </ul>
   </nav>
